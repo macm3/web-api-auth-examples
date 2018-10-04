@@ -13,9 +13,9 @@ var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
-var client_id = '6c7805fb57f54e5faa15db62a7af0294'; // Your client id
-var client_secret = 'b050438d97fe45a78c493037bf625e17'; // Your secret
-var redirect_uri = 'http://localhost:8888/'; // Your redirect uri
+var client_id = '4c9639e02f294a058faf42a20277aacf'; // Your client id
+var client_secret = 'ba382399d2d64db2a4acfa045dd2481f'; // Your secret
+var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -55,6 +55,8 @@ app.get('/login', function(req, res) {
       redirect_uri: redirect_uri,
       state: state
     }));
+
+    console.log(state);
 });
 
 app.get('/callback', function(req, res) {
