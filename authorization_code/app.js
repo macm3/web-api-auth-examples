@@ -59,6 +59,19 @@ app.get('/login', function(req, res) {
     console.log(state);
 });
 
+app.get('/playlists', function(req, res) {
+  var scope = 'user-read-private user-read-email';
+  res.redirect('https://api.spotify.com/v1/users/{user_id}/playlists' +
+    querystring.stringify({
+      response_type: 'code',
+      client_id: client_id,
+      scope: scope,
+      redirect_uri: redirect_uri,
+      state: state
+    }));
+
+});
+
 app.get('/callback', function(req, res) {
 
   // your application requests refresh and access tokens
